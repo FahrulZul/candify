@@ -1,0 +1,203 @@
+.main-header{
+    grid-area: header;
+    background-color: color(white);
+    display: grid;
+    grid-template-columns: 2fr 2.1fr 2.1fr;
+    grid-template-areas: "logo logo side";
+
+    .logo{
+        grid-area: logo;
+        color: color(primary);
+        font-size: 20px;
+        font-weight: bold;
+        // height: 100px;
+        display: flex;
+        align-items: center;
+        background-color: color(secondary);
+        // border: 1px solid red;
+        a{
+            margin-left: 100px;
+            text-decoration: none;
+        }
+    }
+
+    .side{
+        grid-area: side;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .shop{
+            text-decoration: none;
+            font-size: .8rem;
+            margin-left: 50px;
+            padding: .8rem 1.5rem;
+            background-color: color(primary);
+            color: color(white);
+            border-radius: 20px 0;
+            transition: background ease-in-out .3s;
+            text-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.3);
+            &:hover{
+                background-color: darken(color(primary), 10%);
+                transition: background ease-in-out .3s;
+            }
+        }
+        .menu-btn{
+            display: none;
+        }
+        .menu-icon{
+            cursor: pointer;
+            // border: 1px solid red;
+            margin-right: 50px;
+            padding: 1rem;
+            position: relative;
+            z-index: 4;
+    
+            &__line{
+                position: relative;
+                display: block;
+                height: 2px;
+                width: 30px;
+                background-color: rgb(30, 30, 30);
+    
+                animation: closemid 1s backwards;
+    
+                &::before,
+                &::after{
+                    content: '';
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    background-color: rgb(30, 30, 30);
+                }
+                &::before{
+                    transform: translateY(-5px);
+                    animation: closetop 1s backwards;
+                }
+                &::after{
+                    transform: translateY(5px);
+                    animation: closebtm 1s backwards;
+                }
+            }
+        }
+        .nav-links{
+            position: absolute;
+            top: 0;
+            left: 66%;
+            right: 0;
+            bottom: 0;
+            // background: linear-gradient(45deg, color(nom), color(yum));
+            background: color(main);
+            z-index: -1;
+            // opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 1s ease-in-out,
+                        transform .5s ease-in-out,
+                        z-index 1s ease-in-out 1.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .nav-link{
+                list-style-type: none;
+                position: relative;
+                top: 10%;
+                left: 2%;
+                opacity: 0;
+                
+                span{
+                    display: block;
+                    color: color(text);
+                    font-size: .8rem;
+                }
+                // &:after{
+                //     content: '';
+                //     border-bottom: 5px solid color(text);
+                //     display: block;
+                //     width: 40px;
+                //     position: relative;
+                //     left: 3%;
+                //     bottom: 20%;
+                //     transition: width ease-in-out .5s;
+                // }
+                // &:hover::after{
+                //     width: 100%;
+                //     transition: width ease-in-out .5s;
+                // }
+                
+                a{
+                    text-decoration: none;
+                    color: color(text);
+                    text-transform: lowercase;
+                    font-size: 50px;
+                    font-weight: 700;
+                    position: relative;
+                    left: 2%;
+                    top: -20px;
+                    letter-spacing: 0;
+                    transition: letter-spacing .5s ease-in-out;
+                    &:hover{
+                        letter-spacing: .2rem;
+                        transition: letter-spacing .5s ease-in-out;
+                    }
+                }
+            }
+            // .bg-image{
+            //     clip-path: polygon(52% 0, 85% 0, 68% 100%, 33% 100%);
+            //     position: absolute;
+            //     top: 0;
+            //     right: 0;
+            //     left: 0;
+            //     bottom: 0;
+            //     opacity: 0;
+            // }
+            // .gallery{
+            //     &:hover ~ .bg-image{
+            //         background: color(nom) url(/image/woman-eating-candy-3154825.jpg) no-repeat center;
+            //         background-blend-mode: multiply;
+            //         transition: background .5s ease-in-out;
+            //     }
+            // }
+            
+    
+        }
+    }
+
+    
+    .menu-btn:checked ~ .menu-icon{
+
+        .menu-icon__line{
+            background-color: color(text);
+            transition: background .5s ease;
+            animation: openmid 1s forwards;
+            &::before{
+                background-color: color(text);
+                transition: background .5s ease;
+                animation: opentop 1s forwards;
+            }
+            &::after{
+                background-color: color(text);
+                transition: background .5s ease;
+                animation: openbtm 1s forwards;
+            }
+        }
+    
+    }
+    .menu-btn:checked ~ .nav-links{
+        // opacity: 1;
+        // background: linear-gradient(45deg, color(nom), color(yum));
+        transform: translateX(0);
+        background: color(main);
+        z-index: 3;
+        transition: transform .5s ease-in-out;
+        .nav-link{
+            opacity: 1;
+            transition: opacity .5s ease-in-out .5s;
+        }
+        // .bg-image{
+        //     opacity: 1;
+        //     background: url(/image/woman-sitting-on-the-road-eating-froot-loops-1805405.jpg) no-repeat top right;
+        //     transition: background 1s ease-in-out 1.5s,
+        //                 opacity .5s ease-in-out 1.5s;
+        // }
+    }
+}

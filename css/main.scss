@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gayathri:400,700&display=swap');
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$colors: (
+    main: #ace6f6,
+    yum: #446491,
+    nom: #39bdc8,
+    secondary: #e4fcf9,
+    primary: #4b89ac,
+    text: #303a52,
+    white: #fdfdfd
+);
+
+@function color($colorname){
+    @return map-get($colors, $colorname)
+};
+
+@import 'header';
+@import 'animation';
+
+html{
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 2.1fr 2.1fr;
+    grid-template-rows: 1fr 3.3fr 2fr 1fr;
+    grid-template-areas: "header   header   header"
+                         "main   main   candy"
+                         "nom    yum    candy"
+                         "footer footer candy"
+}
+
+.main{
+    grid-area: main;
+    background-color: color(secondary);
+
+    
+    .main-content{
+        
+        height: 333px;
+        margin-left: 100px;
+        margin-right: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: color(text);
+
+        &__title{
+            font-family: 'Gayathri', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 400;
+            span{
+                font-weight: bold;
+            }
+        }
+        &__text{
+            line-height: 1.5rem;
+        }
+    }
+}
+
+.candy{
+    grid-area: candy;
+    background: url(/image/close-up-photo-of-woman-holding-lollipop-1540408.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.nom{
+    grid-area: nom;
+    background-color: color(nom);
+    background-image: url(/image/blue-lollipop-1289363-removebg-preview.png);
+    background-position-y: -32px;
+
+    &:hover{
+        background-position-y: -50px;
+    }
+}
+
+.yum{
+    grid-area: yum;
+    background-color: color(yum);
+    background-image: url(/image/pink-and-red-lollipop-1289365-removebg-preview.png);
+    background-position-y: -13px;
+    &:hover{
+        background-position-y: -30px;
+    }
+}
+
+.nom,
+.yum{
+    cursor: pointer;
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: color(white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    transform: scale(1);
+    z-index: 0;
+
+    transition: background-position-y ease-in-out .3s,
+                    background-color ease-in-out .3s,
+                    z-index ease-in-out .3s,
+                    transform ease-in-out .3s;
+
+    &:hover{
+        background-color: rgba($color: color(nom), $alpha: 0);
+        transform: scale(1.1);
+        z-index: 1;
+        transition: background-position-y ease-in-out .3s,
+                    background-color ease-in-out .3s,
+                    z-index ease-in-out .3s,
+                    transform ease-in-out .3s;
+
+        p{
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: transform ease-in-out .3s, opacity ease-in-out .3s;
+        }
+    }
+
+    p{
+        font-family: 'Gayathri', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 1rem;
+        position: relative;
+        opacity: 1;
+        transform: translateY(0px);
+        transition: transform ease-in-out .3s, opacity ease-in-out .3s;
+        text-shadow: 1px 1px 5px rgba($color: color(white), $alpha: 0.2);
+        span{
+            display: block;
+            font-weight: 400;
+            font-size: 1.1rem;
+            &::before{
+                content: '';
+                border-top: 1px solid #fff;
+                display: block;
+                width: 40%;
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+
+
+.footer{
+    grid-area: footer;
+    background-color: color(secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    p{
+        margin-left: 100px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        span{
+            color: color(primary);
+            font-weight: bold;
+        }
+    }
+    .icons{
+        margin-right: 80px;
+        margin-bottom: 15px;
+        .icon{
+            padding: 0 5px;
+            text-decoration: none;
+            svg{
+                transform: scale(1);
+                transition: transform .3s ease;
+                &:hover{
+                    transform: scale(1.2);
+                    transition: transform .3s ease;
+                    g{
+                        fill: lighten(color(primary), 10%) !important;
+                        transition: fill .3s ease;
+                    }
+                }
+                g{
+                    fill: color(primary);
+                    transition: fill .3s ease;
+                }
+            }
+        }
+    }
+}
+
+@import 'media';
