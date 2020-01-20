@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    font-size: 10px;
+}
+
 $colors: (
     main: #ace6f6,
     yum: #446491,
@@ -54,9 +58,9 @@ body{
     
     .main-content{
         
-        height: 333px;
-        margin-left: 100px;
-        margin-right: 150px;
+        height: 35em;
+        margin-left: 10em;
+        margin-right: 15em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -64,6 +68,7 @@ body{
 
         &__title{
             font-family: 'Gayathri', sans-serif;
+            font-size: 3rem;
             margin-bottom: 20px;
             font-weight: 400;
             span{
@@ -71,7 +76,8 @@ body{
             }
         }
         &__text{
-            line-height: 1.5rem;
+            font-size: 1.5rem;
+            line-height: 1.5em;
         }
     }
 }
@@ -139,7 +145,7 @@ body{
 
     p{
         font-family: 'Gayathri', sans-serif;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 700;
         margin: 1rem;
         position: relative;
@@ -150,7 +156,7 @@ body{
         span{
             display: block;
             font-weight: 400;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             &::before{
                 content: '';
                 border-top: 1px solid #fff;

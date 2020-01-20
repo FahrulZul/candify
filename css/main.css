@@ -9,6 +9,10 @@
           box-sizing: border-box;
 }
 
+:root {
+  font-size: 10px;
+}
+
 .main-header {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -27,7 +31,7 @@
   -ms-grid-column-span: 2;
   grid-area: logo;
   color: #4b89ac;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -60,12 +64,11 @@
 
 .main-header .side .shop {
   text-decoration: none;
-  font-size: .8rem;
+  font-size: 1.3rem;
   margin-left: 50px;
-  padding: .8rem 1.5rem;
+  padding: .5em 1.5em;
   background-color: #4b89ac;
   color: #fdfdfd;
-  border-radius: 20px 0;
   -webkit-transition: background ease-in-out .3s;
   transition: background ease-in-out .3s;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
@@ -161,7 +164,7 @@
 .main-header .side .nav-links .nav-link span {
   display: block;
   color: #303a52;
-  font-size: .8rem;
+  font-size: 1.2rem;
 }
 
 .main-header .side .nav-links .nav-link a {
@@ -438,9 +441,9 @@ body {
 }
 
 .main .main-content {
-  height: 333px;
-  margin-left: 100px;
-  margin-right: 150px;
+  height: 35em;
+  margin-left: 10em;
+  margin-right: 15em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -456,6 +459,7 @@ body {
 
 .main .main-content__title {
   font-family: 'Gayathri', sans-serif;
+  font-size: 3rem;
   margin-bottom: 20px;
   font-weight: 400;
 }
@@ -465,7 +469,8 @@ body {
 }
 
 .main .main-content__text {
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5em;
 }
 
 .candy {
@@ -554,7 +559,7 @@ body {
 .nom p,
 .yum p {
   font-family: 'Gayathri', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin: 1rem;
   position: relative;
@@ -572,7 +577,7 @@ body {
 .yum p span {
   display: block;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .nom p span::before,
