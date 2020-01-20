@@ -1,8 +1,8 @@
 Not merge to master branch yet.
 
-To merge the command is:
+To merge:
 
 1. make sure in the master branch
-2. git merge  (branch name)
+2. command: git merge (branch name)
 3. enter the commit message why the merge necessary.
 4. Done.
