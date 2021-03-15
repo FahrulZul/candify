@@ -1,0 +1,61 @@
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Manrope', sans-serif;
+    color: $lightblack;
+    min-height: 100vh;
+}
+
+.page_grid{
+
+    @include breakpoint-up(large){
+        display: grid;
+        height: 100vh;
+        grid-template-areas: "header header" 
+                             "hero demo"
+                             "candy demo"
+                             "footer demo";
+        grid-template-rows: 1fr 5fr 2fr 1fr;
+        grid-template-columns: 4fr 2fr;
+    }
+}
+
+
+
+a, a:visited, a:focus{
+    text-decoration: none;
+}
+
+.container{
+
+    &_pall{
+        padding: 1.625rem 1.5625rem; //26px 25px
+    }
+
+    &_px{
+        padding: 0 1.5625rem;
+    }
+}
+
+.button{
+    background-color: $lightruby;
+    color: $white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.625rem 1.125rem;
+}
+
+.hide-on-mobile{
+    display: none;
+
+    @include breakpoint-up(large){
+        display: block;
+    }
+}
