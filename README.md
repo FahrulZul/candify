@@ -1,1 +1,1 @@
-Practising CSS Grid to create a simple responsive layout.
+Practising CSS Grid to create a responsive layout.
